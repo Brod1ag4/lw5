@@ -1,0 +1,49 @@
+body {
+  background: linear-gradient(to right, #1e4151, #152c37, #12272f);
+  color: #e0e0e0ff;
+}
+
+.input {
+  font-size: 16px;
+  font-weight: 400px;
+  background-color: rgba(199, 199, 199, 0);
+  border-color: rgb(199, 199, 199);
+  color: #cececeff;
+  border: none;
+  margin-right: 40px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.input:focus {
+  outline: 0;
+}
+
+#result-table {
+  font-size: 14px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table-column-name,
+.table-column {
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  border-color: white;
+}
+
+.table-column {
+  background: #939393;
+}
+
+.table-column-name,
+.table-column:first-child {
+  background: #5e5e5e;
+  color: white;
+  padding: 10px 20px;
+}
+
+.table-column-name:first-child,
+.table-column:first-child {
+  text-align: left;
+}

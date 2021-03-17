@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>lw5</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <script src="https://twitter.github.io/typeahead.js/js/handlebars.js"></script>
+    <script src="./js/script.js"></script>
+    <table
+      frame="border"
+      cellspacing="8"
+      cellpadding="10"
+      border="1"
+      width="100%"
+      class="products-table"
+    >
+      <script id="store-template" type="text/x-handlebars-template">
+        <th class='table-column-name'>
+          Название
+        </th>
+        <th class='table-column-name'>
+          Колличество
+        </th>
+        <th class='table-column-name'>
+          Ценна за 1
+        </th>
+        <th class='table-column-name'>
+          Ценна(total)
+        </th>
+        {{#each productsList}}
+          <tr>
+            <td class='table-column'>
+              {{name}}
+            </td>
+            <td class='table-column'>
+              <input
+                type='text'
+                value="{{count}}"
+                class='table-column__input-count input'
+                readonly
+              />
+            </td>
+            <td class='table-column'>
+              <input
+                type='text'
+                value="{{priceForOne}}"
+                class='table-column__input-price input'
+                readonly
+              />
+            </td>
+            <td class='table-column'>
+              {{priceTotal}}
+            </td>
+          </tr>
+        {{/each}}
+        <tr>
+          <td class='table-column' colspan='3' class='result'>
+            Общая стоимость:
+          </td>
+          <td class='table-column'>
+            {{totalCost}}
+          </td>
+        </tr>
+      </script>
+    </table>
+    <table
+      frame="border"
+      cellspacing="8"
+      cellpadding="10"
+      border="1"
+      width="100%"
+      id="result-table"
+    ></table>
+  </body>
+</html>
