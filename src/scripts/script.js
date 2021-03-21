@@ -1,31 +1,33 @@
 const script = require('./function');
 
-let productsList = [
+const productsList = [
   { id: 1, name: 'Молоко', count: 400, priceForOne: 50, priceTotal: 0 },
   { id: 2, name: 'Хлеб', count: 100, priceForOne: 20, priceTotal: 0 },
   { id: 3, name: 'Лук', count: 200, priceForOne: 5, priceTotal: 0 },
 ];
-let listLength = productsList.length;
 
-function createObservableObject(array, update) {
+function createObservableObject(array, callback) {
   return new Proxy(array, {
     set(target, property, value) {
-      if (property === 'count') {
-        target.count = value;
-      } else if (property === 'priceForOne') {
-        target.priceForOne = value;
-      } else if (property === 'priceTotal') {
-        target.priceTotal = value;
-        return true;
-      }
-      update();
+      target[property] = value;
+      callback();
       return true;
     },
   });
 }
-function createObservableArray(array) {
+function createObservableArray(array, callback) {
   return new Proxy(array, {
-    set() {
+    apply(target, thisArg) {
+      callback();
+      return thisArg[target].apply(this, argumentList);
+    },
+    deleteProperty() {
+      callback();
+      return true;
+    },
+    set(target, property, value) {
+      target[property] = value;
+      callback();
       return true;
     },
   });
