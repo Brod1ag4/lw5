@@ -35,7 +35,7 @@ function createObservableArray(array, callback) {
 
 function updateUI() {
   script.calculationTotalPrice(productsList);
-  let totalCost = script.totalCostCalculation(productsList);
+  const totalCost = script.totalCostCalculation(productsList);
   const source = document.getElementById('store-template').innerHTML;
   const template = Handlebars.compile(source);
   const html = template({ productsList, totalCost });
