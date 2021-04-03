@@ -23,8 +23,8 @@ function setPrice(elementProduct, price) {
 }
 
 module.exports = {
-  totalCostCalculation(list),
-  calculationTotalPrice(list),
-  setCount(elementProduct, count),
-  setPrice(elementProduct, price),
+  totalCostCalculation,
+  calculationTotalPrice,
+  setCount,
+  setPrice,
 };
